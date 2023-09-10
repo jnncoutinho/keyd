@@ -441,6 +441,10 @@ struct device_event *device_read_event(struct device *dev)
 				ev.code = KEYD_VOICECOMMAND;
 			else if (ev.code >= BTN_DIGI
 				 && ev.code <= BTN_TOOL_QUADTAP);
+			else if (ev.code == BTN_0)
+				ev.code = KEYD_LEFT_MOUSE;
+			else if (ev.code > BTN_0
+				 && ev.code <= BTN_9);
 			else {
 				keyd_log("r{ERROR:} unsupported evdev code: 0x%x\n", ev.code);
 				return NULL;
