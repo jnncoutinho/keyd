@@ -767,6 +767,20 @@ static void parse_id_section(struct config *config, struct ini_section *section)
 				config->ids[config->nr_ids].flags = ID_KEYBOARD;
 
 				config->nr_ids++;
+			} else if (sscanf(s, "pen:%hx:%hx", &vendor, &product) == 2) {
+				assert(config->nr_ids < ARRAY_SIZE(config->ids));
+				config->ids[config->nr_ids].product = product;
+				config->ids[config->nr_ids].vendor = vendor;
+				config->ids[config->nr_ids].flags = ID_PEN;
+
+				config->nr_ids++;
+			} else if (sscanf(s, "pad:%hx:%hx", &vendor, &product) == 2) {
+				assert(config->nr_ids < ARRAY_SIZE(config->ids));
+				config->ids[config->nr_ids].product = product;
+				config->ids[config->nr_ids].vendor = vendor;
+				config->ids[config->nr_ids].flags = ID_PAD;
+
+				config->nr_ids++;
 			} else if (sscanf(s, "-%hx:%hx", &vendor, &product) == 2) {
 				assert(config->nr_ids < ARRAY_SIZE(config->ids));
 				config->ids[config->nr_ids].product = product;
