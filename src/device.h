@@ -11,6 +11,8 @@
 #define CAP_MOUSE	0x1
 #define CAP_MOUSE_ABS	0x2
 #define CAP_KEYBOARD	0x4
+#define CAP_PEN	   0x8
+#define CAP_PAD	   0x10
 
 #define MAX_DEVICES	64
 

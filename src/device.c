@@ -100,6 +100,15 @@ static int device_init(const char *path, struct device *dev)
 		return -1;
 	}
 
+	// Hacky way of detecting PEN and PAD capabilities
+	if (strcasestr(dev->name, "pen") != NULL) {
+		capabilities |= CAP_PEN;
+	}
+
+	if (strcasestr(dev->name, "pad") != NULL) {
+		capabilities |= CAP_PAD;
+	}
+
 	if (capabilities & CAP_MOUSE_ABS) {
 		if (ioctl(fd, EVIOCGABS(ABS_X), &absinfo) < 0) {
 			perror("ioctl");
