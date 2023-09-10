@@ -20,11 +20,11 @@
 #define PATH_MAX 1024
 #endif
 
-#define ID_EXCLUDED	1
-#define ID_MOUSE	2
-#define ID_KEYBOARD	4
-#define ID_PEN	    8
-#define ID_PAD	    10
+#define ID_EXCLUDED	0x1
+#define ID_MOUSE	0x2
+#define ID_KEYBOARD	0x4
+#define ID_PEN	    0x8
+#define ID_PAD	    0x10
 
 enum op {
 	OP_KEYSEQUENCE = 1,

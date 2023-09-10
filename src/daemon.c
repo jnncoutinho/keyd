@@ -195,6 +195,10 @@ static void manage_device(struct device *dev)
 		flags |= ID_KEYBOARD;
 	if (dev->capabilities & (CAP_MOUSE|CAP_MOUSE_ABS))
 		flags |= ID_MOUSE;
+	if (dev->capabilities & CAP_PEN)
+		flags |= ID_PEN;
+	if (dev->capabilities & CAP_PAD)
+		flags |= ID_PAD;
 
 	if ((ent = lookup_config_ent(dev->vendor_id, dev->product_id, flags))) {
 		if (device_grab(dev)) {
